@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Test</title>
+</head>
+<body>
+  <div id="view"></div>
+  <script>
+    const view=document.getElementById('view')
+
+    const socket = new WebSocket('ws://localhost:3000');
+
+    socket.addEventListener('open', (event) => {
+      console.log('WebSocket connected');
+    });
+
+    socket.addEventListener('message', (event) => {
+      console.log('Update received');
+      location.reload();
+    });
+
+    socket.addEventListener('close', (event) => {
+      console.log('WebSocket disconnected');
+    });
+  </script>
+</body>
+</html>
